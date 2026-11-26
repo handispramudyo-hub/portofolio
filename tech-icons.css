@@ -10,15 +10,13 @@
 /* --------------------------------------------------------------------------
    1. SKILLS — TECHNOLOGY ICON GRID
    -------------------------------------------------------------------------- */
-.stack-grid {
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: clamp(0.4rem, 1.2vw, 0.9rem);
-}
+/* Panel luar hanya pembungkus; grid ada di .tech-grid. */
+.stack-grid { display: block; }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: inherit;
-  gap: inherit;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(0.4rem, 1.2vw, 0.9rem);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -151,11 +149,11 @@
    3. RESPONSIVE
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .stack-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
-  .stack-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+  .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
   .tech-icon--labeled { gap: 0.4rem; padding: 0.55rem 0.1rem; border-radius: 11px; }
   .tech-icon--labeled .tech-svg { --tech-size: 28px; }
   .tech-label { font-size: 8px; }
