@@ -32,7 +32,7 @@ function admin_base(): string
     $dir = realpath(ADMIN_DIR) ?: str_replace('\\', '/', ADMIN_DIR);
     $docRoot = realpath((string)($_SERVER['DOCUMENT_ROOT'] ?? '')) ?: '';
 
-    if ($docRoot !== '' && str_starts_with($dir, $docRoot)) {
+    if ($docRoot !== '' && strpos($dir, $docRoot) === 0) {
         $base = str_replace('\\', '/', substr($dir, strlen($docRoot)));
     } else {
         $base = str_replace('\\', '/', dirname((string)($_SERVER['SCRIPT_NAME'] ?? '')));
@@ -54,7 +54,7 @@ function enforce_admin_trailing_slash(): void
     $path = parse_url($uri, PHP_URL_PATH);
     $base = admin_base();
 
-    if (is_string($path) && $base !== '' && rtrim($path, '/') === $base && !str_ends_with($path, '/')) {
+    if (is_string($path) && $base !== '' && rtrim($path, '/') === $base && substr($path, -1) !== '/') {
         $query = parse_url($uri, PHP_URL_QUERY);
         header('Location: ' . $base . '/' . ($query ? '?' . $query : ''));
         exit;
