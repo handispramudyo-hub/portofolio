@@ -58,7 +58,7 @@ $mustChange = !empty($auth['must_change']);
   <meta name="robots" content="noindex, nofollow">
   <title>Login Admin — <?= htmlspecialchars($siteName, ENT_QUOTES, 'UTF-8') ?></title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/admin.css">
+  <link rel="stylesheet" href="assets/admin.css?v=2">
 </head>
 <body class="login-body">
 

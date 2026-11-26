@@ -294,8 +294,8 @@
     { key: 'category', label: 'Kategori', type: 'text', help: 'mis. Web Application, Company Profile' },
     { key: 'summary', label: 'Ringkasan', type: 'textarea', help: 'Tampil di kartu project dan pembuka case study.' },
     { key: 'tags', label: 'Teknologi', type: 'tags', help: 'Pisahkan dengan koma.' },
-    { key: 'cover', label: 'Gambar cover', type: 'image', kind: 'project', help: 'Rasio 16:10. Tampil di kartu project.' },
-    { key: 'gallery', label: 'Screenshot tambahan', type: 'imageList', kind: 'project', help: 'Muncul di popup case study. Rasio 16:10.' },
+    { key: 'cover', label: 'Gambar cover', type: 'image', kind: 'project', help: 'Tampil di kartu project. Rasio 16:10 disarankan, gambar lain tetap tampil utuh.' },
+    { key: 'gallery', label: 'Screenshot tambahan', type: 'imageList', kind: 'project', help: 'Muncul di popup case study. Boleh rasio apa pun, tidak akan dipotong.' },
     {
       key: 'links',
       label: 'Link project',

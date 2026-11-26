@@ -21,7 +21,7 @@ $siteName = $config['site_name'] ?? 'Admin';
   <meta name="csrf-token" content="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
   <title>Admin — <?= htmlspecialchars($siteName, ENT_QUOTES, 'UTF-8') ?></title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/admin.css">
+  <link rel="stylesheet" href="assets/admin.css?v=2">
 </head>
 <body>
 
@@ -72,6 +72,6 @@ $siteName = $config['site_name'] ?? 'Admin';
       siteName: <?= json_encode($siteName, JSON_UNESCAPED_UNICODE) ?>
     };
   </script>
-  <script src="assets/admin.js?v=2" defer></script>
+  <script src="assets/admin.js?v=3" defer></script>
 </body>
 </html>

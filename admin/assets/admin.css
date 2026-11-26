@@ -616,7 +616,13 @@ code {
     var(--cream-dark);
   overflow: hidden;
 }
-.img-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img-preview img {
+  box-sizing: border-box;
+  width: 100%; height: 100%;
+  padding: 4px;
+  object-fit: contain;
+  display: block;
+}
 .img-preview .img-empty {
   font-family: var(--font-mono);
   font-size: 9px;
@@ -671,7 +677,7 @@ code {
   background: var(--cream-dark);
   overflow: hidden;
 }
-.thumb img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.thumb img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; }
 
 .thumb-tools {
   display: flex;
