@@ -296,7 +296,7 @@
 
       img.addEventListener('error', markMissing);
       img.addEventListener('load', function () {
-        var holder = img.closest('.media');
+        var holder = img.closest('.media') || img.closest('.hero-portrait');
         if (holder) holder.classList.remove('is-missing');
         img.classList.remove('is-broken');
       });
