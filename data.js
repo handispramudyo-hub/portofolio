@@ -26,7 +26,7 @@ window.PORTFOLIO = {
         "bio": "Informatics Engineering student passionate about building scalable web applications and solving real-world problems through code.",
         "email": "hello@handis.dev",
         "cv": "assets/cv-handis.pdf",
-        "photo": "assets/profile/handis.jpg"
+        "photo": "assets/profile/handis-removebg-preview-d58e4f.png"
     },
     "socials": [
         {
