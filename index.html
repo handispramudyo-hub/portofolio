@@ -2,6 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    /* Intro hanya pada kunjungan pertama dalam satu sesi. */
+    (function () {
+      var root = document.documentElement;
+      try {
+        var reduce = window.matchMedia &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce || sessionStorage.getItem('handis-intro') === '1') {
+          root.classList.add('intro-seen');
+        } else {
+          root.classList.add('has-intro');
+        }
+      } catch (err) {
+        root.classList.add('has-intro');
+      }
+
+      /* Fail-safe: kalau script loader gagal, hero tetap tampil. */
+      window.setTimeout(function () {
+        if (!document.body || document.body.classList.contains('is-loaded')) return;
+        root.classList.remove('has-intro');
+        root.classList.add('intro-complete');
+        document.body.classList.add('is-loaded');
+      }, 5200);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Handis Pramudio Ananta — Web Developer &amp; Informatics Engineering Student</title>
   <meta name="description" content="Informatics Engineering student at Universitas Dian Nuswantoro building scalable web applications with Laravel, PHP, JavaScript, and MySQL.">
@@ -26,19 +51,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="loader.css?v=1">
+  <link rel="stylesheet" href="hero-decor.css?v=1">
 
   <noscript>
     <style>
-      .reveal { opacity: 1 !important; transform: none !important; }
+      .portfolio-loader { display: none !important; }
+      .reveal, .hero-inner { opacity: 1 !important; transform: none !important; }
+      .decor-item, .decor-particle { opacity: 0.6 !important; }
       .props-canvas { display: none !important; }
     </style>
   </noscript>
 
   <!-- Data must load before app.js. Deferred scripts keep their order. -->
   <!-- Three.js is loaded on demand by app.js so a slow CDN never blocks the page. -->
+  <script src="loader.js?v=1" defer></script>
   <script src="data.js?v=4" defer></script>
   <script src="app.js?v=3" defer></script>
+  <script src="hero-decor.js?v=1" defer></script>
 
   <script type="application/ld+json">
   {
@@ -56,6 +87,46 @@
   </script>
 </head>
 <body>
+
+  <!-- ================= PREMIUM INTRO LOADER ================= -->
+  <div class="portfolio-loader" id="portfolio-loader" role="status" aria-live="polite" aria-label="Memuat portofolio Handis.dev">
+    <header class="loader-head">
+      <span class="loader-logo" aria-hidden="true">H</span>
+      <span class="loader-brand">HANDIS.DEV</span>
+      <span class="loader-tag">PORTFOLIO — 2026</span>
+    </header>
+
+    <div class="loader-center">
+      <p class="loader-eyebrow">HANDIS.</p>
+      <h2 class="loader-title">
+        <span class="loader-title-line"><span>CREATIVE</span></span>
+        <span class="loader-title-line"><span class="loader-title-accent">DEVELOPER</span></span>
+      </h2>
+
+      <div class="loader-scene" aria-hidden="true">
+        <div class="ld-obj ld-glass-sphere" data-depth="14" data-rotate="5"><span class="ld-shape"></span></div>
+        <div class="ld-obj ld-chrome-ring" data-depth="26" data-rotate="9"><span class="ld-shape"></span></div>
+        <div class="ld-obj ld-glass-cube" data-depth="18" data-rotate="7"><span class="ld-shape"></span></div>
+        <div class="ld-obj ld-liquid-blob" data-depth="12" data-rotate="6"><span class="ld-shape"></span></div>
+        <span class="ld-particle ld-p1"></span>
+        <span class="ld-particle ld-p2"></span>
+        <span class="ld-particle ld-p3"></span>
+        <span class="ld-particle ld-p4"></span>
+        <span class="ld-particle ld-p5"></span>
+      </div>
+    </div>
+
+    <div class="loader-progress">
+      <span id="loader-percent">00%</span>
+      <div class="loader-track"><div id="loader-progress-bar"></div></div>
+      <span class="loader-status">CRAFTING DIGITAL EXPERIENCES...</span>
+    </div>
+
+    <footer class="loader-foot">
+      <span>HANDIS.DEV</span>
+      <span>EST. 2026</span>
+    </footer>
+  </div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -130,6 +201,40 @@
     <section class="hero" id="home" data-nav="home">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-halftone" aria-hidden="true"></div>
+
+      <!-- ================= PREMIUM HERO 3D DECORATION ================= -->
+      <div class="hero-decor" aria-hidden="true">
+        <div class="decor-layer decor-layer--particles">
+          <span class="decor-particle p-1" data-depth="6" data-rotate="2"></span>
+          <span class="decor-particle p-2" data-depth="9" data-rotate="3"></span>
+          <span class="decor-particle p-3" data-depth="5" data-rotate="2"></span>
+          <span class="decor-particle p-4" data-depth="11" data-rotate="4"></span>
+          <span class="decor-particle p-5" data-depth="7" data-rotate="2"></span>
+          <span class="decor-particle p-6" data-depth="8" data-rotate="3"></span>
+          <span class="decor-particle p-7" data-depth="4" data-rotate="2"></span>
+          <span class="decor-particle p-8" data-depth="10" data-rotate="3"></span>
+        </div>
+
+        <div class="decor-layer decor-layer--glass">
+          <div class="decor-item item-glass-sphere" data-depth="14" data-rotate="5"><span class="decor-shape shape-sphere"></span></div>
+          <div class="decor-item item-glass-cube" data-depth="20" data-rotate="8"><span class="decor-shape shape-cube"></span></div>
+        </div>
+
+        <div class="decor-layer decor-layer--chrome">
+          <div class="decor-item item-chrome-torus" data-depth="26" data-rotate="10"><span class="decor-shape shape-torus"></span></div>
+        </div>
+
+        <div class="decor-layer decor-layer--liquid">
+          <div class="decor-item item-liquid-blob" data-depth="18" data-rotate="7"><span class="decor-shape shape-blob"></span></div>
+          <div class="decor-item item-clay-dot" data-depth="12" data-rotate="4"><span class="decor-shape shape-clay"></span></div>
+          <div class="decor-item item-clay-tile" data-depth="22" data-rotate="9"><span class="decor-shape shape-clay-tile"></span></div>
+        </div>
+
+        <div class="decor-layer decor-layer--code">
+          <div class="decor-item item-code-chip" data-depth="32" data-rotate="11"><span class="decor-shape shape-code">&lt;/&gt;</span></div>
+          <div class="decor-item item-keyboard" data-depth="30" data-rotate="10"><span class="decor-shape shape-keyboard"></span></div>
+        </div>
+      </div>
 
       <div class="container hero-inner">
         <p class="hero-eyebrow"><span class="hairline" aria-hidden="true"></span> Hi, I'm</p>

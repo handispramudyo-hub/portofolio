@@ -420,7 +420,7 @@ svg.icon { width: 1.05em; height: 1.05em; flex: none; }
 .hero-stage {
   position: relative;
   width: 100%;
-  height: clamp(320px, 44vw, 530px);
+  height: clamp(320px, 40vw, 470px);
   display: grid;
   place-items: center;
   margin-block: clamp(6px, 1.5vw, 16px) 0;
@@ -443,6 +443,7 @@ svg.icon { width: 1.05em; height: 1.05em; flex: none; }
   position: relative;
   z-index: 2;
   width: clamp(180px, 23vw, 290px);
+  margin-bottom: clamp(20px, 3vw, 40px);
   aspect-ratio: 4 / 5;
   background: transparent;
   box-shadow: none;
