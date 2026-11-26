@@ -34,6 +34,14 @@
     }, obj);
   }
 
+  /* Ikon teknologi dari modul tech-icons.js (inline SVG, tanpa library). */
+  function techIcon(name, options) {
+    if (window.TechIcons && window.TechIcons.has(name)) {
+      return window.TechIcons.icon(name, options);
+    }
+    return '<span class="tag">' + esc(name) + '</span>';
+  }
+
   var state = { lab: false, px: 0, py: 0, scroll: 0, heroVisible: true };
 
   /* ---------------------------------------------------------------- */
@@ -136,17 +144,16 @@
 
     var stack = document.getElementById('stack-grid');
     if (stack) {
-      stack.innerHTML = (skills.stack || []).map(function (group) {
-        return '' +
-          '<div class="stack-group">' +
-            '<p class="stack-group-label">' + esc(group.group) + '</p>' +
-            '<ul class="stack-items">' +
-              (group.items || []).map(function (item) {
-                return '<li>' + esc(item) + '</li>';
-              }).join('') +
-            '</ul>' +
-          '</div>';
-      }).join('');
+      /* Data lama berbentuk grup; tampilkan sebagai satu grid ikon. */
+      var names = [];
+      (skills.stack || []).forEach(function (group) {
+        (group.items || []).forEach(function (item) {
+          if (item && names.indexOf(item) === -1) names.push(item);
+        });
+      });
+      stack.innerHTML = '<ul class="tech-grid">' + names.map(function (name) {
+        return '<li>' + techIcon(name, { label: true, className: 'tech-icon--labeled' }) + '</li>';
+      }).join('') + '</ul>';
     }
 
     var count = document.getElementById('stack-count');
@@ -205,7 +212,7 @@
 
     grid.innerHTML = (DATA.projects || []).map(function (project, i) {
       var tags = (project.tags || []).map(function (tag) {
-        return '<li class="tag">' + esc(tag) + '</li>';
+        return '<li>' + techIcon(tag) + '</li>';
       }).join('');
 
       return '' +
@@ -224,7 +231,8 @@
               '<span aria-hidden="true">·</span>' + esc(project.year) + '</p>' +
             '<h3 class="project-title">' + esc(project.title) + '</h3>' +
             '<p class="project-summary">' + esc(project.summary) + '</p>' +
-            '<ul class="tag-row">' + tags + '</ul>' +
+            '<ul class="project-tech" aria-label="Technologies used in ' +
+              esc(project.title) + '">' + tags + '</ul>' +
           '</div>' +
         '</article>';
     }).join('');
@@ -778,6 +786,12 @@
     if (grid) {
       grid.addEventListener('click', function (e) {
         var link = e.target.closest('[data-project]');
+        if (!link) {
+          /* Ikon berada di atas overlay kartu; tetap buka case study. */
+          var iconEl = e.target.closest('.project-tech .tech-icon');
+          var card = iconEl && iconEl.closest('.project-card');
+          link = card && card.querySelector('.card-link');
+        }
         if (!link) return;
         e.preventDefault();
         openProject(Number(link.getAttribute('data-project')), link);

@@ -1,0 +1,176 @@
+/* ==========================================================================
+   HANDIS.DEV — TECHNOLOGY ICON GRID
+   Modul mandiri untuk Skills grid + Project tech row.
+   ========================================================================== */
+
+:root {
+  --tech-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   1. SKILLS — TECHNOLOGY ICON GRID
+   -------------------------------------------------------------------------- */
+.stack-grid {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(0.4rem, 1.2vw, 0.9rem);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: inherit;
+  gap: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tech-grid > li { min-width: 0; }
+
+.tech-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tech-color, var(--carbon));
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tech-icon--labeled {
+  width: 100%;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: clamp(0.55rem, 1.1vw, 0.85rem) 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.78);
+  transition: transform 0.35s var(--tech-ease), box-shadow 0.35s var(--tech-ease),
+    border-color 0.35s ease, background 0.35s ease;
+}
+.tech-icon--labeled:hover,
+.tech-icon--labeled:focus-visible {
+  transform: translateY(-4px) scale(1.045);
+  border-color: rgba(20, 20, 19, 0.12);
+  background: #fff;
+  box-shadow: 0 14px 26px rgba(20, 20, 19, 0.09),
+    0 0 0 1px var(--tech-color);
+}
+.tech-icon--labeled:focus-visible { outline: 2px solid var(--tangerine-ink); outline-offset: 3px; }
+
+.tech-svg {
+  display: block;
+  width: var(--tech-size, 34px);
+  height: var(--tech-size, 34px);
+  flex: none;
+  filter: drop-shadow(0 3px 5px rgba(20, 20, 19, 0.1));
+  transition: transform 0.35s var(--tech-ease);
+}
+.tech-icon:hover .tech-svg,
+.tech-icon:focus-visible .tech-svg { transform: translateY(-1px) scale(1.06); }
+
+.tech-label {
+  display: block;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: clamp(8px, 0.75vw, 10px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--carbon);
+  overflow-wrap: anywhere;
+}
+
+/* Tooltip ---------------------------------------------------------------- */
+.tech-icon::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: 30;
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  background: var(--carbon);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.2s ease, transform 0.2s var(--tech-ease);
+}
+.tech-icon:hover::after,
+.tech-icon:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+
+/* Label sudah terlihat, tooltip hanya dipakai di ikon project. */
+.tech-icon--labeled::after { display: none; }
+
+/* --------------------------------------------------------------------------
+   2. PROJECTS — ICON ROW
+   -------------------------------------------------------------------------- */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+.project-tech > li { display: flex; }
+
+.project-tech .tech-icon {
+  --tech-size: 18px;
+  position: relative;
+  z-index: 7;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: transform 0.3s var(--tech-ease), box-shadow 0.3s var(--tech-ease),
+    border-color 0.3s ease;
+}
+.project-tech .tech-icon:hover,
+.project-tech .tech-icon:focus-visible {
+  transform: translateY(-2px) scale(1.08);
+  border-color: rgba(20, 20, 19, 0.14);
+  box-shadow: 0 8px 16px rgba(20, 20, 19, 0.1), 0 0 0 1px var(--tech-color);
+}
+.project-tech .tech-icon:focus-visible { outline: 2px solid var(--tangerine-ink); outline-offset: 3px; }
+
+/* Fallback untuk teknologi baru yang belum punya logo. */
+.project-tech .tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   3. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .stack-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .stack-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+  .tech-icon--labeled { gap: 0.4rem; padding: 0.55rem 0.1rem; border-radius: 11px; }
+  .tech-icon--labeled .tech-svg { --tech-size: 28px; }
+  .tech-label { font-size: 8px; }
+  .project-tech .tech-icon { --tech-size: 16px; padding: 6px; }
+}
+
+/* --------------------------------------------------------------------------
+   4. REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .tech-icon,
+  .tech-icon .tech-svg,
+  .tech-icon::after { transition: none; }
+  .tech-icon:hover,
+  .tech-icon:focus-visible,
+  .tech-icon:hover .tech-svg,
+  .tech-icon:focus-visible .tech-svg { transform: none; }
+}
