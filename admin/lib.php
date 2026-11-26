@@ -406,6 +406,36 @@ function write_content(array $content): void
 
     atomic_write(CONTENT_FILE, $json . "\n");
     atomic_write(DATA_FILE, data_js_source($content));
+    bump_data_version();
+}
+
+/**
+ * Ganti ?v= pada <script src="data.js"> supaya browser tidak memakai
+ * salinan lama setelah konten disimpan lewat admin.
+ */
+function bump_data_version(): void
+{
+    $file = SITE_DIR . '/index.html';
+    if (!is_file($file)) {
+        return;
+    }
+
+    $html = @file_get_contents($file);
+    if ($html === false) {
+        return;
+    }
+
+    $version = (string) time();
+    $updated = preg_replace(
+        '~<script src="data\.js(?:\?v=\d+)?"~',
+        '<script src="data.js?v=' . $version . '"',
+        $html,
+        1
+    );
+
+    if (is_string($updated) && $updated !== $html) {
+        @atomic_write($file, $updated);
+    }
 }
 
 function content_is_valid($content): bool
