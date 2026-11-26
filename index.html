@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handis Pramudio Ananta — Web Developer &amp; Informatics Engineering Student</title>
+  <meta name="description" content="Informatics Engineering student at Universitas Dian Nuswantoro building scalable web applications with Laravel, PHP, JavaScript, and MySQL.">
+  <meta name="theme-color" content="#F8F6F2">
+  <meta name="author" content="Handis Pramudio Ananta">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Handis Pramudio Ananta — Web Developer">
+  <meta property="og:description" content="Informatics Engineering student building scalable web applications with Laravel, PHP, JavaScript, and MySQL.">
+  <meta property="og:image" content="assets/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Handis Pramudio Ananta — Web Developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/og-cover.png">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .props-canvas { display: none !important; }
+    </style>
+  </noscript>
+
+  <!-- Data must load before app.js. Deferred scripts keep their order. -->
+  <!-- Three.js is loaded on demand by app.js so a slow CDN never blocks the page. -->
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Handis Pramudio Ananta",
+    "jobTitle": "Web Developer",
+    "description": "Informatics Engineering student building scalable web applications.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universitas Dian Nuswantoro"
+    },
+    "knowsAbout": ["Web Development", "Software Engineering", "UI/UX Design", "Laravel", "PHP", "MySQL", "JavaScript"]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Ambient WebGL props (decorative) -->
+  <canvas id="props-canvas" class="props-canvas" aria-hidden="true"></canvas>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header ui-layer">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Handis.dev — back to top">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span class="brand-name" data-bind="profile.brand">Handis.dev</span>
+      </a>
+
+      <p class="status-pill">
+        <span class="dot dot-pulse" aria-hidden="true"></span>
+        <span class="status-text" data-bind="profile.status">Open to Work</span>
+        <span class="status-sep" aria-hidden="true">•</span>
+        <span class="clock" id="live-clock">SEMARANG 00:00 GMT+7</span>
+      </p>
+
+      <div class="header-actions">
+        <a class="btn btn-dark btn-sm" href="assets/cv-handis.pdf" download data-cv>
+          <span>Download CV</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+          </svg>
+        </a>
+        <button class="icon-btn menu-open" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= DRAWER MENU ================= -->
+  <div class="scrim" id="drawer-scrim" hidden></div>
+
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+    <div class="drawer-head">
+      <span class="mono">INDEX</span>
+      <button class="icon-btn drawer-close" type="button" aria-label="Close menu">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Sections">
+      <a href="#home" data-dock="home"><span class="mono">00</span> Home</a>
+      <a href="#about" data-dock="about"><span class="mono">01</span> About</a>
+      <a href="#skills" data-dock="skills"><span class="mono">02</span> Skills</a>
+      <a href="#projects" data-dock="projects"><span class="mono">03</span> Projects</a>
+      <a href="#certificates" data-dock="certificates"><span class="mono">04</span> Certificates</a>
+      <a href="#experience" data-dock="experience"><span class="mono">05</span> Experience</a>
+      <a href="#contact" data-dock="contact"><span class="mono">06</span> Contact</a>
+    </nav>
+
+    <div class="drawer-foot">
+      <button class="btn btn-soft btn-block" type="button" data-lab-open>
+        <span>3D Lab</span><span class="mono">↗</span>
+      </button>
+      <a class="btn btn-dark btn-block" href="assets/cv-handis.pdf" download data-cv>Download CV</a>
+    </div>
+  </aside>
+
+  <main id="main" class="ui-layer" tabindex="-1">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home" data-nav="home">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-halftone" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <p class="hero-eyebrow"><span class="hairline" aria-hidden="true"></span> Hi, I'm</p>
+
+        <h1 class="sr-only">Handis Pramudio Ananta</h1>
+
+        <div class="hero-stage" aria-hidden="true">
+          <p class="hero-name-back"><span data-bind="profile.firstName">Handis</span></p>
+
+          <figure class="hero-portrait" id="hero-portrait">
+            <div class="hero-portrait-fallback">
+              <span class="monogram">HP</span>
+            </div>
+            <img data-profile-photo src="assets/profile/handis.jpg" alt="" width="640" height="800" fetchpriority="high">
+          </figure>
+
+          <p class="hero-name-front"><span data-bind="profile.lastName">Pramudio Ananta</span></p>
+        </div>
+
+        <p class="hero-role">
+          <span class="hero-role-text" id="role-typing">Tech Enthusiast</span><span class="caret" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero-bio" data-bind="profile.bio">Informatics Engineering student passionate about building scalable web applications and solving real-world problems through code.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#projects">View My Work <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#contact">Let's Talk</a>
+        </div>
+
+        <div class="hero-meta">
+          <p class="hero-pill">
+            <span class="pill-square" aria-hidden="true"><span class="dot"></span></span>
+            <span data-bind="profile.availability">Available for projects &amp; internships</span>
+          </p>
+
+          <a class="scroll-hint" href="#stats">
+            <span class="scroll-bar" aria-hidden="true"></span>
+            <span>Scroll</span>
+          </a>
+
+          <p class="hero-loc">Based in <span data-bind="profile.city">Semarang</span>, Indonesia</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats" id="stats" aria-label="Highlights">
+      <div class="container">
+        <div class="stats-grid" id="stats-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section about" id="about" data-nav="about">
+      <div class="container">
+        <header class="section-head reveal">
+          <div>
+            <p class="section-tag"><span class="square" aria-hidden="true"></span> 01 / About</p>
+            <h2 class="section-title">A student who ships,<br>not just studies.</h2>
+          </div>
+          <p class="section-lead">Coursework gives me the theory. Real projects give me the reps. I build for the web and keep raising the bar on what I can ship.</p>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <div id="about-paragraphs"></div>
+            <ul class="trait-row" id="about-traits" aria-label="Strengths"></ul>
+          </div>
+
+          <aside class="info-card reveal" aria-label="Profile details">
+            <div class="info-card-head">
+              <span class="mono">PROFILE</span>
+              <span class="status-chip"><span class="dot dot-pulse" aria-hidden="true"></span> <span data-bind="profile.status">Open to Work</span></span>
+            </div>
+            <dl class="info-list" id="about-facts"></dl>
+            <a class="btn btn-ghost btn-block" href="#contact">Work with me <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section skills" id="skills" data-nav="skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <div>
+            <p class="section-tag"><span class="square" aria-hidden="true"></span> 02 / Skills</p>
+            <h2 class="section-title">What I bring<br>to the table.</h2>
+          </div>
+          <p class="section-lead">Four disciplines I keep sharpening through coursework, personal projects, and client work.</p>
+        </header>
+
+        <div class="capability-grid" id="skills-grid"></div>
+
+        <div class="stack-panel reveal">
+          <div class="stack-head">
+            <span class="mono">TECH STACK</span>
+            <span class="mono stack-count" id="stack-count">8 TECHNOLOGIES</span>
+          </div>
+          <div class="stack-grid" id="stack-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section projects" id="projects" data-nav="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <div>
+            <p class="section-tag"><span class="square" aria-hidden="true"></span> 03 / Projects</p>
+            <h2 class="section-title">Selected work<br>&amp; experiments.</h2>
+          </div>
+          <p class="section-lead">Each project is proof that I can turn concepts into real, working products.</p>
+        </header>
+
+        <div class="project-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= CERTIFICATES ================= -->
+    <section class="section certificates" id="certificates" data-nav="certificates">
+      <div class="container">
+        <header class="section-head reveal">
+          <div>
+            <p class="section-tag"><span class="square" aria-hidden="true"></span> 04 / Certificates</p>
+            <h2 class="section-title">Certifications<br>&amp; continuous learning.</h2>
+          </div>
+          <p class="section-lead">Proof of steady progress. Click any certificate to view it full size.</p>
+        </header>
+
+        <div class="cert-grid" id="cert-grid"></div>
+        <noscript><p class="section-lead">Enable JavaScript to view the certificate gallery.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section experience" id="experience" data-nav="experience">
+      <div class="container">
+        <header class="section-head reveal">
+          <div>
+            <p class="section-tag"><span class="square" aria-hidden="true"></span> 05 / Experience</p>
+            <h2 class="section-title">Experience<br>&amp; education.</h2>
+          </div>
+          <p class="section-lead">A timeline of the classrooms, teams, and clients that shaped how I build.</p>
+        </header>
+
+        <div class="timeline" id="experience-list"></div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section contact" id="contact" data-nav="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-glow" aria-hidden="true"></div>
+
+          <div class="contact-grid">
+            <div class="contact-intro">
+              <p class="section-tag"><span class="square" aria-hidden="true"></span> 06 / Contact</p>
+              <h2 class="contact-title" data-bind="contact.heading">Let's collaborate.</h2>
+              <p class="contact-desc" data-bind="contact.description">Have an interesting project or want to discuss? Feel free to reach out — I respond quickly.</p>
+
+              <button class="copy-email" id="copy-email" type="button">
+                <span class="copy-email-value" data-bind="profile.email">hello@handis.dev</span>
+                <span class="copy-chip">COPY</span>
+              </button>
+
+              <div class="social-block">
+                <p class="mono social-label">Or find me on</p>
+                <div class="social-row" id="social-row"></div>
+              </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="cf-name">Full Name</label>
+                  <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                  <p class="field-error" id="cf-name-error"></p>
+                </div>
+                <div class="field">
+                  <label for="cf-email">Active Email</label>
+                  <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+                  <p class="field-error" id="cf-email-error"></p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="cf-subject">Subject</label>
+                <input id="cf-subject" name="subject" type="text" placeholder="What is this about?" required>
+                <p class="field-error" id="cf-subject-error"></p>
+              </div>
+
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                <p class="field-error" id="cf-message-error"></p>
+              </div>
+
+              <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <button class="btn btn-dark btn-block" type="submit" id="cf-submit">
+                <span class="btn-label">Send Message</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+
+              <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer-inner">
+      <p class="footer-brand"><span class="brand-mark" aria-hidden="true">H</span> <span data-bind="profile.brand">Handis.dev</span></p>
+      <p class="footer-tagline" data-bind="footer.tagline">Building digital solutions, one line of code at a time.</p>
+      <p class="footer-meta">© <span data-bind="footer.year">2026</span> Handis Pramudio Ananta</p>
+    </div>
+  </footer>
+
+  <!-- ================= DOCK NAV ================= -->
+  <nav class="dock ui-layer" aria-label="Section navigation">
+    <a class="dock-brand" href="#home" data-dock="home" aria-label="Home">H.</a>
+    <a class="dock-link" href="#about" data-dock="about">About</a>
+    <a class="dock-link dock-optional" href="#skills" data-dock="skills">Skills</a>
+    <a class="dock-link" href="#projects" data-dock="projects">Projects</a>
+    <a class="dock-link" href="#certificates" data-dock="certificates">Certificates</a>
+    <a class="dock-link dock-optional" href="#experience" data-dock="experience">Experience</a>
+    <a class="dock-link" href="#contact" data-dock="contact">Contact</a>
+    <button class="dock-btn dock-lab" type="button" data-lab-open>3D Lab</button>
+    <button class="dock-btn dock-menu menu-open" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 8h16M4 16h16"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ================= PROJECT CASE STUDY ================= -->
+  <div class="dialog" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" hidden>
+    <div class="dialog-backdrop" data-close></div>
+    <div class="dialog-panel">
+      <header class="dialog-head">
+        <span class="mono" id="project-modal-tag">CASE STUDY</span>
+        <button class="icon-btn" type="button" data-close aria-label="Close case study">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18"/>
+          </svg>
+        </button>
+      </header>
+      <div class="dialog-body" id="project-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ================= CERTIFICATE LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-panel">
+      <header class="lightbox-head">
+        <div class="lightbox-title-wrap">
+          <p class="lightbox-title" id="lb-title"></p>
+          <p class="mono lightbox-meta" id="lb-meta"></p>
+        </div>
+        <div class="lightbox-tools">
+          <button class="icon-btn icon-btn--ghost" type="button" data-zoom aria-label="Toggle zoom" aria-pressed="false">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/>
+            </svg>
+          </button>
+          <button class="icon-btn icon-btn--ghost" type="button" data-close aria-label="Close certificate viewer">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="lightbox-stage media" id="lb-stage">
+        <div class="media-fallback" aria-hidden="true">
+          <div class="shape shape-cert"><i></i><i></i><i></i></div>
+        </div>
+        <img id="lb-img" alt="" decoding="async">
+        <button class="gallery-btn gallery-prev" type="button" id="lb-prev" aria-label="Previous certificate">‹</button>
+        <button class="gallery-btn gallery-next" type="button" id="lb-next" aria-label="Next certificate">›</button>
+      </div>
+
+      <footer class="lightbox-foot">
+        <span class="mono" id="lb-count">1 / 3</span>
+        <a class="btn btn-soft btn-sm" id="lb-credential" href="#" target="_blank" rel="noopener noreferrer" hidden>Verify credential ↗</a>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ================= 3D LAB BAR ================= -->
+  <div class="lab-bar" id="lab-bar" hidden>
+    <span class="mono">3D LAB — DRAG TO ROTATE</span>
+    <button class="btn btn-accent btn-sm" type="button" id="lab-exit">Exit</button>
+  </div>
+
+  <!-- ================= TOAST ================= -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="toast-text"></span>
+  </div>
+
+</body>
+</html>
+

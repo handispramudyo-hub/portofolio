@@ -1,0 +1,10 @@
+# Runtime state & backup dari panel admin
+/admin/storage/*
+!/admin/storage/.htaccess
+/admin/backups/*
+!/admin/backups/.htaccess
+
+# File sistem
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,20 @@
+# Sistem admin — jangan tampilkan daftar file.
+Options -Indexes
+
+# File internal tidak boleh diakses langsung lewat browser.
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(config|auth|lib)\.php$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "^(config|auth|lib)\.php$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
+
+# Jangan cache halaman admin.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>

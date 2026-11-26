@@ -1,0 +1,320 @@
+/* ============================================================================
+   HANDIS.DEV - DATA SITUS
+   ----------------------------------------------------------------------------
+   FILE INI DIBUAT OTOMATIS oleh sistem admin.
+   Jangan diedit manual - perubahan akan tertimpa saat kamu menyimpan
+   lewat admin. Sumber datanya ada di content.json.
+   ========================================================================== */
+
+window.PORTFOLIO = {
+    "profile": {
+        "name": "Handis Pramudio Ananta",
+        "firstName": "Handis",
+        "lastName": "Pramudio Ananta",
+        "brand": "Handis.dev",
+        "roles": [
+            "Tech Enthusiast",
+            "Web Developer",
+            "Problem Solver",
+            "Informatics Student"
+        ],
+        "status": "Open to Work",
+        "availability": "Available for projects & internships",
+        "city": "Semarang",
+        "timezone": "Asia/Jakarta",
+        "timezoneLabel": "GMT+7",
+        "bio": "Informatics Engineering student passionate about building scalable web applications and solving real-world problems through code.",
+        "email": "hello@handis.dev",
+        "cv": "assets/cv-handis.pdf",
+        "photo": "assets/profile/handis.jpg"
+    },
+    "socials": [
+        {
+            "label": "GitHub",
+            "url": ""
+        },
+        {
+            "label": "LinkedIn",
+            "url": ""
+        },
+        {
+            "label": "Instagram",
+            "url": ""
+        }
+    ],
+    "stats": [
+        {
+            "value": 10,
+            "suffix": "+",
+            "label": "Projects Completed"
+        },
+        {
+            "value": 5,
+            "suffix": "+",
+            "label": "Technologies Mastered"
+        },
+        {
+            "value": 3,
+            "suffix": "+",
+            "label": "Certifications"
+        },
+        {
+            "value": 100,
+            "suffix": "%",
+            "label": "Commitment"
+        }
+    ],
+    "about": {
+        "paragraphs": [
+            "Informatics Engineering student at Universitas Dian Nuswantoro (UDINUS) with a strong interest in Software Engineering, Web Development, and Information Systems.",
+            "Experienced in developing web-based applications, including inventory management systems, portfolio websites, and business management solutions using Laravel, PHP, JavaScript, and MySQL.",
+            "Familiar with Software Development Life Cycle (SDLC), database design, REST API integration, and responsive web development. Passionate about building scalable and user-friendly applications while continuously improving technical skills through hands-on projects and professional certifications."
+        ],
+        "traits": [
+            "Problem Solver",
+            "Fast Learner",
+            "Team Player",
+            "Creative Thinker"
+        ],
+        "facts": [
+            {
+                "label": "Name",
+                "value": "Handis Pramudio Ananta"
+            },
+            {
+                "label": "Education",
+                "value": "Universitas Dian Nuswantoro"
+            },
+            {
+                "label": "Major",
+                "value": "S1 Informatics Engineering"
+            },
+            {
+                "label": "Status",
+                "value": "Open to Work",
+                "accent": true
+            }
+        ]
+    },
+    "skills": {
+        "capabilities": [
+            {
+                "title": "Web Development",
+                "description": "Building responsive, performant, and production-ready web platforms.",
+                "tag": "Frontend"
+            },
+            {
+                "title": "Software Engineering",
+                "description": "Designing scalable and maintainable software architecture.",
+                "tag": "Architecture"
+            },
+            {
+                "title": "UI/UX Design",
+                "description": "Designing intuitive interfaces with a focus on user experience.",
+                "tag": "Design"
+            },
+            {
+                "title": "Problem Solving",
+                "description": "Breaking down complex problems into structured, actionable solutions.",
+                "tag": "Mindset"
+            }
+        ],
+        "stack": [
+            {
+                "group": "Frontend",
+                "items": [
+                    "HTML5",
+                    "CSS3",
+                    "JavaScript"
+                ]
+            },
+            {
+                "group": "Backend",
+                "items": [
+                    "PHP",
+                    "Laravel"
+                ]
+            },
+            {
+                "group": "Database",
+                "items": [
+                    "MySQL"
+                ]
+            },
+            {
+                "group": "Tools",
+                "items": [
+                    "Git",
+                    "Figma"
+                ]
+            }
+        ]
+    },
+    "projects": [
+        {
+            "id": "inventory",
+            "title": "Inventory Management System",
+            "category": "Web Application",
+            "year": "2024",
+            "summary": "A web-based CRUD inventory system with relational database design, form validation, and seamless frontend-backend integration using Laravel.",
+            "tags": [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "Bootstrap"
+            ],
+            "cover": "assets/projects/inventory-cover.jpg",
+            "gallery": [
+                "assets/projects/inventory-1.jpg",
+                "assets/projects/inventory-2.jpg"
+            ],
+            "links": {
+                "demo": "",
+                "repo": ""
+            },
+            "shape": "cube",
+            "fallbackTheme": "light",
+            "details": [
+                {
+                    "label": "The Problem",
+                    "text": "Stock was tracked in spreadsheets, making item counts error-prone and movement history hard to audit."
+                },
+                {
+                    "label": "What I Built",
+                    "text": "A Laravel application with a relational MySQL schema, server-side form validation, searchable item records, and an admin dashboard for incoming and outgoing stock."
+                },
+                {
+                    "label": "Result",
+                    "text": "Stock movement now lives in one place, with low-stock highlights and a clean CRUD flow that is easy for non-technical staff to follow."
+                }
+            ]
+        },
+        {
+            "id": "coffeeflow",
+            "title": "Coffeeflow — Coffee Shop Website",
+            "category": "Responsive Website",
+            "year": "2024",
+            "summary": "A responsive coffee shop management website with product catalog, menu management, and user-friendly navigation across all devices.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Git"
+            ],
+            "cover": "assets/projects/coffeeflow-cover.jpg",
+            "gallery": [],
+            "links": {
+                "demo": "",
+                "repo": ""
+            },
+            "shape": "ring",
+            "fallbackTheme": "light",
+            "details": [
+                {
+                    "label": "The Problem",
+                    "text": "Menu changes and product information were handled manually, so the shop needed a site that staff could update quickly."
+                },
+                {
+                    "label": "What I Built",
+                    "text": "A mobile-first site with a structured product catalog, a menu section that is easy to extend, and navigation tested across phone, tablet, and desktop."
+                },
+                {
+                    "label": "Result",
+                    "text": "A consistent browsing experience on every screen size, with a catalog layout that makes adding new menu items straightforward."
+                }
+            ]
+        },
+        {
+            "id": "coffeeboss",
+            "title": "CoffeeBoss — Supplier Kopi Temanggung",
+            "category": "Company Profile",
+            "year": "2025",
+            "summary": "A company profile for CoffeeBoss Indonesia — a supplier and exporter of Arabica and Robusta green coffee beans from the highlands of Temanggung, built with a dark-luxury direction.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "cover": "assets/projects/coffeeboss-cover.jpg",
+            "gallery": [],
+            "links": {
+                "demo": "",
+                "repo": ""
+            },
+            "shape": "card",
+            "fallbackTheme": "dark",
+            "details": [
+                {
+                    "label": "The Problem",
+                    "text": "A premium Indonesian coffee supplier needed a credible, global-facing presence that matched the quality of its beans."
+                },
+                {
+                    "label": "What I Built",
+                    "text": "A dark-luxury company profile with a product showcase, origin story, and a clear inquiry path for wholesale buyers."
+                },
+                {
+                    "label": "Result",
+                    "text": "A sharper brand impression and a single destination that explains origin, product grades, and how to start an order."
+                }
+            ]
+        }
+    ],
+    "certificates": [
+        {
+            "title": "Certificate Title 01",
+            "issuer": "Issuer Name",
+            "year": "2024",
+            "image": "assets/certificates/cert-01.jpg",
+            "credential": ""
+        },
+        {
+            "title": "Certificate Title 02",
+            "issuer": "Issuer Name",
+            "year": "2024",
+            "image": "assets/certificates/cert-02.jpg",
+            "credential": ""
+        },
+        {
+            "title": "Certificate Title 03",
+            "issuer": "Issuer Name",
+            "year": "2025",
+            "image": "assets/certificates/cert-03.jpg",
+            "credential": ""
+        }
+    ],
+    "experience": [
+        {
+            "period": "2024 — Present",
+            "title": "Freelance Web Developer",
+            "org": "Independent Projects",
+            "note": "Building websites for clients, optimizing performance and user experience using Laravel, PHP, JavaScript, and modern frameworks.",
+            "tag": "Work",
+            "current": true
+        },
+        {
+            "period": "2023 — Present",
+            "title": "S1 Informatics Engineering",
+            "org": "Universitas Dian Nuswantoro (UDINUS)",
+            "note": "GPA 3.28/4.00 ┬╖ Coursework: Software Engineering, OOP, Web Programming, Database Systems, Data Structures, HCI, UI/UX Design, Project Management.",
+            "tag": "Education",
+            "current": true
+        },
+        {
+            "period": "2022 — 2023",
+            "title": "Chairman of Student Council (OSIS)",
+            "org": "Senior High School",
+            "note": "Led and coordinated student council members, managed communication between students and school management, and ensured successful program implementation.",
+            "tag": "Leadership",
+            "current": false
+        }
+    ],
+    "contact": {
+        "heading": "Let's collaborate.",
+        "description": "Have an interesting project or want to discuss? Feel free to reach out — I respond quickly.",
+        "accessKey": "YOUR_WEB3FORMS_ACCESS_KEY"
+    },
+    "footer": {
+        "tagline": "Building digital solutions, one line of code at a time.",
+        "year": "2026"
+    }
+};
