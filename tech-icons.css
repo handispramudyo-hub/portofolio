@@ -35,6 +35,7 @@
 
 .tech-icon--labeled {
   width: 100%;
+  min-height: 92px;
   flex-direction: column;
   gap: 0.55rem;
   padding: clamp(0.55rem, 1.1vw, 0.85rem) 0.2rem;
@@ -154,7 +155,7 @@
 
 @media (max-width: 640px) {
   .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
-  .tech-icon--labeled { gap: 0.4rem; padding: 0.55rem 0.1rem; border-radius: 11px; }
+  .tech-icon--labeled { min-height: 78px; gap: 0.4rem; padding: 0.55rem 0.1rem; border-radius: 11px; }
   .tech-icon--labeled .tech-svg { --tech-size: 28px; }
   .tech-label { font-size: 8px; }
   .project-tech .tech-icon { --tech-size: 16px; padding: 6px; }

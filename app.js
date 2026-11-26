@@ -142,26 +142,34 @@
       }).join('');
     }
 
+    /* Data admin + tambahan dari modul ikon. Duplikat dilewati. */
+    var techNames = [];
+    function addTech(name) {
+      if (!name) return;
+      var canonical = window.TechIcons ? window.TechIcons.label(name) : name;
+      var duplicate = techNames.some(function (existing) {
+        return (window.TechIcons ? window.TechIcons.label(existing) : existing) === canonical;
+      });
+      if (!duplicate) techNames.push(name);
+    }
+
+    (skills.stack || []).forEach(function (group) {
+      (group.items || []).forEach(addTech);
+    });
+    if (window.TechIcons && window.TechIcons.extras) {
+      window.TechIcons.extras().forEach(addTech);
+    }
+
     var stack = document.getElementById('stack-grid');
     if (stack) {
-      /* Data lama berbentuk grup; tampilkan sebagai satu grid ikon. */
-      var names = [];
-      (skills.stack || []).forEach(function (group) {
-        (group.items || []).forEach(function (item) {
-          if (item && names.indexOf(item) === -1) names.push(item);
-        });
-      });
-      stack.innerHTML = '<ul class="tech-grid">' + names.map(function (name) {
+      stack.innerHTML = '<ul class="tech-grid">' + techNames.map(function (name) {
         return '<li>' + techIcon(name, { label: true, className: 'tech-icon--labeled' }) + '</li>';
       }).join('') + '</ul>';
     }
 
     var count = document.getElementById('stack-count');
     if (count) {
-      var total = (skills.stack || []).reduce(function (sum, group) {
-        return sum + (group.items || []).length;
-      }, 0);
-      count.textContent = total + ' TECHNOLOGIES';
+      count.textContent = techNames.length + ' TECHNOLOGIES';
     }
   }
 
