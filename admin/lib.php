@@ -45,6 +45,28 @@ function admin_base(): string
 }
 
 /**
+ * Path URL root situs, misalnya "" atau "/porto-web".
+ * Dipakai admin untuk menampilkan preview gambar yang path-nya
+ * disimpan relatif terhadap root website.
+ */
+function site_base(): string
+{
+    $dir = realpath(SITE_DIR) ?: str_replace('\\', '/', SITE_DIR);
+    $docRoot = realpath((string)($_SERVER['DOCUMENT_ROOT'] ?? '')) ?: '';
+
+    if ($docRoot !== '' && strpos($dir, $docRoot) === 0) {
+        $base = str_replace('\\', '/', substr($dir, strlen($docRoot)));
+    } else {
+        $base = str_replace('\\', '/', dirname(dirname((string)($_SERVER['SCRIPT_NAME'] ?? ''))));
+        if ($base === '.') {
+            $base = '';
+        }
+    }
+
+    return rtrim($base, '/');
+}
+
+/**
  * Paksa "/admin" menjadi "/admin/" supaya path relatif (CSS, JS, app.php)
  * tidak di-resolve dari root situs.
  */

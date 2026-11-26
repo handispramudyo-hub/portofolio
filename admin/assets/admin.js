@@ -169,6 +169,20 @@
     });
   }
 
+  /**
+   * Path gambar di content disimpan relatif terhadap root website.
+   * Di halaman /admin/, path itu harus di-awali root situs supaya preview
+   * tidak di-resolve menjadi /admin/assets/... .
+   */
+  function assetUrl(path) {
+    if (!path) return '';
+    if (/^(https?:)?\/\//i.test(path) || /^(data|blob):/i.test(path) || path.charAt(0) === '/') {
+      return path;
+    }
+    var siteBase = (window.ADMIN && typeof window.ADMIN.siteBase === 'string') ? window.ADMIN.siteBase : '';
+    return siteBase + '/' + path;
+  }
+
   function uploadFile(file, kind) {
     if (!file) return Promise.reject(new Error('Tidak ada file.'));
     if (state.meta.maxUpload && file.size > state.meta.maxUpload) {
@@ -611,7 +625,7 @@
       var src = obj[spec.key];
 
       if (src) {
-        var img = el('img', { src: src, alt: '' });
+        var img = el('img', { src: assetUrl(src), alt: '' });
         img.addEventListener('error', function () {
           clear(preview);
           preview.appendChild(el('span', { class: 'img-empty', text: 'Gambar tidak ditemukan' }));
@@ -748,7 +762,7 @@
       }
 
       list.forEach(function (src, index) {
-        var img = el('img', { src: src, alt: '' });
+        var img = el('img', { src: assetUrl(src), alt: '' });
         img.addEventListener('error', function () {
           img.style.opacity = '0.25';
         });

@@ -67,10 +67,11 @@ $siteName = $config['site_name'] ?? 'Admin';
   <script>
     window.ADMIN = {
       base: <?= json_encode(admin_base(), JSON_UNESCAPED_SLASHES) ?>,
+      siteBase: <?= json_encode(site_base(), JSON_UNESCAPED_SLASHES) ?>,
       csrf: <?= json_encode($csrf) ?>,
       siteName: <?= json_encode($siteName, JSON_UNESCAPED_UNICODE) ?>
     };
   </script>
-  <script src="assets/admin.js" defer></script>
+  <script src="assets/admin.js?v=2" defer></script>
 </body>
 </html>
